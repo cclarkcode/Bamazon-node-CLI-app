@@ -1,18 +1,7 @@
-var mysql = require('mysql');
 var inquirer = require('inquirer');
-var createtable = require('./bamazonuniversal.js');
+var universal = require('./bamazonuniversal.js');
 
-var connection = mysql.createConnection({
-  host: "localhost",
-  port: 3306,
-
-  // Your username
-  user: "root",
-
-  // Your password
-  password: "password",
-  database: "bamazon"
-});
+var connection = universal.connect;
 
 //Run code
 managerprompt();
@@ -24,7 +13,7 @@ function showproducts(callback) {
 	    if (err) throw err;
 	    else {
 	    		console.log('\nProducts available for sale.\n\n');
-	    		createtable(results);
+	    		universal.createtable(results);
 	    			
 	    	}
 
@@ -75,7 +64,7 @@ function lowinventory() {
 	    	else {
 
 	    		console.log('\nItems with low inventory\n');
-	    		createtable(results);	       	
+	    		universal.createtable(results);	       	
 	    	}
 	    	
 	    }

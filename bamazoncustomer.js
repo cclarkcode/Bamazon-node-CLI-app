@@ -1,18 +1,7 @@
-var mysql = require('mysql');
 var inquirer = require('inquirer');
-var tablefunction = require('./bamazonuniversal.js');
+var universal = require('./bamazonuniversal.js');
 
-var connection = mysql.createConnection({
-  host: "localhost",
-  port: 3306,
-
-  // Your username
-  user: "root",
-
-  // Your password
-  password: "password",
-  database: "bamazon"
-});
+var connection = universal.connect;
 
 //Run code
 
@@ -28,7 +17,7 @@ function getproducts() {
     else {
     	
     		console.log('\nProducts available for sale.\n\n');
-    		tablefunction(results);
+    		universal.createtable(results);
     	
     	}
 

@@ -1,4 +1,5 @@
 const {table} = require('table');
+var mysql = require('mysql');
 
 function createtable(data) {
 		var tabledata = [];
@@ -25,5 +26,20 @@ function createtable(data) {
     	console.log(output);
 }
 
+var connect = mysql.createConnection({
+  host: "localhost",
+  port: 3306,
 
-module.exports = createtable;
+  // Your username
+  user: "root",
+
+  // Your password
+  password: "password",
+  database: "bamazon"
+});
+
+
+module.exports = {
+	createtable: createtable,
+	connect: connect
+}
