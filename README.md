@@ -2,7 +2,7 @@
 
 Instructions/Walkthrough
 
-1. Clone repo into folder and run npm i to install necessary packages (packages listed as dependencies in package.json)
+1. Clone repository into folder and run npm i to install necessary packages (packages listed as dependencies in package.json)
 
 2. Run bamazon_schema.sql and bamazon_table_populate.sql scripts in your SQL environment to create some data to work with
 
@@ -26,7 +26,7 @@ Instructions/Walkthrough
 		-View sales report (combination of data from both tables)
 		-Add new department
 
-7. There is also a full video walkthrough of the app in the repo
+7. There is also a full video walkthrough of the app in the repository
 
 
 

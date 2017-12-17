@@ -7,7 +7,7 @@ var connection = universal.connect;
 
 getproducts();
 
-
+//Queries database for available products
 function getproducts() {
 
 	connection.query(
@@ -27,6 +27,7 @@ function getproducts() {
 
 }
 
+//Use inquirer to determine desired user action
 function customerprompt (query) {
 
 	inquirer.prompt([
@@ -48,6 +49,7 @@ function customerprompt (query) {
 			}
 		}
 
+		//Validates user selection
 		if (found) {
 
 			checkquantity(parseInt(results.item_id),parseInt(results.quantity));
@@ -64,6 +66,7 @@ function customerprompt (query) {
 	});
 }
 
+// Validates availability of product
 function checkquantity (id, quantity) {
 
 	connection.query('SELECT * from products where?',
@@ -95,6 +98,7 @@ function checkquantity (id, quantity) {
 
 }
 
+// Updates database with result of transaction
 function updatedb(id,requested,instock) {
 
 	connection.query('UPDATE products SET ? WHERE ? ',

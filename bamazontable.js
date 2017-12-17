@@ -1,3 +1,6 @@
+// Uses npm table package to display results cleanly
+// Built as module in one place to avoid having to require the table in each individual file
+
 const {table} = require('table');
 
 function createtable(data) {

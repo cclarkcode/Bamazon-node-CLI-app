@@ -6,6 +6,7 @@ var connection = universal.connect;
 //Run Code
 supervisorprompt();
 
+// Use inquirer prompt to determine user's desired action
 function supervisorprompt() {
 
 	inquirer.prompt([
@@ -28,6 +29,7 @@ function supervisorprompt() {
 	})
 }
 
+//Add new department
 function newdepartment () {
 
 	inquirer.prompt([
@@ -64,6 +66,7 @@ function newdepartment () {
 
 }
 
+//Function to show sales report which does calculations on data from the database
 function showsales() {
 	connection.query(
 		'SELECT departments.department_id AS Id,' +
@@ -90,6 +93,7 @@ function showsales() {
 		});
 }
 
+//Ends user prompt cycle
 function quit() {
 	connection.end();
 }

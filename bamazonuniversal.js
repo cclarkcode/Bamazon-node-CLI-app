@@ -1,5 +1,8 @@
+// Module export to store database connection so that only one file is required to connect to mysql
+
 const {table} = require('table');
 var mysql = require('mysql');
+
 
 function createtable(data) {
 		var tabledata = [];
@@ -26,6 +29,7 @@ function createtable(data) {
     	console.log(output);
 }
 
+//Create database connection
 var connect = mysql.createConnection({
   host: "localhost",
   port: 3306,

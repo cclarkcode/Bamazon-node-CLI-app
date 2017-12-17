@@ -1,3 +1,5 @@
+
+// Dependencies
 var inquirer = require('inquirer');
 var universal = require('./bamazonuniversal.js');
 
@@ -6,6 +8,7 @@ var connection = universal.connect;
 //Run code
 managerprompt();
 
+// Displays products available
 function showproducts(callback) {
 	connection.query(
 		"SELECT * FROM products",
@@ -22,6 +25,7 @@ function showproducts(callback) {
 	});
 }
 
+// Uses inquirer to find user's desired activity
 function managerprompt() {
 	console.log('----------------------------');
 	inquirer.prompt([
@@ -48,6 +52,8 @@ function managerprompt() {
 	})
 }
 
+
+//Function to determine items with low inventory
 function lowinventory() {
 	connection.query('SELECT * FROM products WHERE in_stock <=5',
 		function(err, results) {
@@ -74,6 +80,7 @@ function lowinventory() {
 	    });
 }
 
+//Function to add inventory to the database
 function addinventory() {
 	inquirer.prompt([
 	{
@@ -121,6 +128,7 @@ function addinventory() {
 	});
 }
 
+// Function to add a new product to the database
 function addproduct() {
 
 	//Find out valid department choices (because departments need to match up to supervisor department table)
@@ -183,6 +191,7 @@ function addproduct() {
 	
 }
 
+//Ends user prompt cycle
 function quit() {
 	connection.end();
 }
